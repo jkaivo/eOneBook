@@ -1167,4 +1167,15 @@ running as root, which will probably save a lot of time later; the device is
 running Linux 4.1.15; and, there are minimal programs running. One thing I find
 particularly interesting at this point is that wpa_supplicant is running. This
 is unexpected given that the device is advertised as having no connectivity.
-I'll have to check for network interfaces soon.
+Checking output of `ifconfig -a` doesn't show any interfaces, so it's probably
+a default in the base distribution.
+
+## Official Documentation
+
+So checking `/proc/cpuinfo` reveals that the hardware is a [Freescale i.MX6
+SoloLite](https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/i.mx-applications-processors/i.mx-6-processors/i.mx-6sololite-processors-single-core-low-power-epd-controller-arm-cortex-a9-core:i.MX6SL).
+Further, `/etc/issue` tells me that the device is running [Freescale i.MX
+Release Distro 4.1.15-2.1.0](https://www.nxp.com/webapp/Download?colCode=L4.1.15_2.1.0_iMX6SLL&appType=license&location=null&Parent_nodeId=1337699481071706174845&Parent_pageType=product) (registration required). So I'll be using an official
+image and official documentation to guide the rest of my development efforts.
+
+Thus ends the reverse engineering.
