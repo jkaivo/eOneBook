@@ -23,15 +23,33 @@ interested in the technical details of the language switching.
 Published titles come on an SDHC card. with "DATA PROTECTED" displayed on a
 sparkly banner on the label. Fortunately, the card itself simply contains a
 FAT32 partition, and "DATA PROTECTION" doesn't prevent examining its contents
-on a computer.
+on a computer. The device doesn't seem to verify whether the SDHC card in use
+actually supports Content Protection, as I was able to copy the contents of
+my Fist of the North Star card to a normal 64GB microSDHC card and use it in
+the device to read the unecnrypted pages. Encrypted pages appeared scrambled,
+so it's possible that the decryption key is derived from the SDHC card in some
+manner.
 
 ## Disk Layout
 
 The root of the SDHC card contains one file, `.A001`, and two directories,
 `C01` and `C02`. The directory structures underneath `C01` and `C02` contain
-an identical set of subdirectories, `000` through `019`. These subdirectories
-contain image files for the manga itself and will be discussed in further
-detail below.
+an identical set of subdirectories, `000` through `019`. As Fist of the North
+Star is listed on the eOneBook site as having 18 volumes plus a bonus episode,
+it is clear that these directories each represent one volume of the manga.
+Each volume contains one file per page of the manga, numbered from `000`. Some
+pages are encrypted, which is indicated by suffixing an `E` to the filename.
+Volume `000` consists of only two pages, which are the instructions on how
+to use the device presented on boot. Examining the files as raw bitmap data
+confirms this, as well as indicating that `C01` holds the Japanese version of
+the manga, while `C02` holds the English.
+
+The only caveat I have so far encountered is that the FAT32 partition must be
+the first partition on the SDHC card. My first attempt at copying the data was
+on a card that had the FAT32 partition as the fourth parition, with the first
+three partitions blank, which resulted in an error screen on the eOneBook
+instructing me (in Japanese, so very roughly paraphrased) to remove the close
+the device, insert a different SDHC card, and open the device back up.
 
 ### The Executable
 
@@ -699,3 +717,35 @@ Wow! So, not only is this file an ELF for ARM, it's a standard GNU/Linux
 executable, and they didn't strip symbols. And they used function names that
 are actually descriptive. This will save a lot of time in reverse engineering
 how the program actually runs so that I can develop a free replacement.
+
+### Image Files
+
+As mentioned before, the manga are stored one image per page, one directory
+per volume. A quick perusal shows that every image file is 1186848 bytes. This
+is a pretty good indicator that the images are stored in a non-compressed
+format, likely to simplify the process of mapping them from disk to display
+memory. Sure enough, tinkering in GIMP by opening an image file as "Raw image
+data", with an "Image Type" of "Indexed", "Offset" 0, "Width" 936, and "Height"
+1268 yields a black and white bitmap. Curiously, the image opens in GIMP
+rotated 90° counterclockwise from normal reading orientation. This would
+indicate that the origin of the eink screens is at the top right corner, and
+the memory addresses of individual pixels increases top-to-bottom,
+right-to-left. As expected, the page numbering places right-hand pages on
+lower numbers than the corresponding left-hand page (e.g. page `000` is
+displayed on the right-hand screen, while `001` is on the left-hand screen),
+following Japanese reading order.
+
+As noted before, some pages are encrypted, with filenames suffixed with `E`
+to indicate this. In fact, only pages `000` and `001` of any volume are
+not encrypted. Based on the function names present in `.A001`, the encryption
+algorithm in use is most likely AES, though there also seems to be mentions
+of "CCC", which I am not familiar with. As mentioned before, the encryption
+key appears to be derived somehow from the SDHC card. It will take some poking
+through the key-related fucntions in `.A001` to see if I can extract it.
+
+I'm currently working on a command line utility to convert eOneBook image files
+back and forth to PNM (which can in turn be converted to and from pretty much
+any format using ImageMagick).
+
+Of note is that I am able to modify unencrypted pages using GIMP, and they
+display just fine on an ordinary SDHC card.
