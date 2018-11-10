@@ -1,5 +1,4 @@
 # eOneBook
-notes on reverse engineering the Progress Technologies eOneBook
 
 The eOneBook is an ereader with two eink displays, intended for reading
 manga with artwork that spans facing pages. The device is described in broad
@@ -749,3 +748,9 @@ any format using ImageMagick).
 
 Of note is that I am able to modify unencrypted pages using GIMP, and they
 display just fine on an ordinary SDHC card.
+
+The number of pages per volume appears to be pulled from somewhere other than
+the contents of each directory. Using the `<<<` button to advance to a volume
+with fewer than the expected number of pages on disk causes the eOneBook to
+display an error message, the only recovery from which is to close the device
+and reopen it, which is functionally a reboot.
