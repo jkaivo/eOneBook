@@ -60,8 +60,7 @@ thing I did was try to identify its type with the POSIX `file` utility:
     $ file .A001                                   
     .A001: ELF 32-bit LSB executable, ARM, version 1
 
-Well, that was easy. After installing a copy of GNU binutils targetting ARM,
-I started poking a bit more.
+Well, that was easy. Let's look at that ELF:
 
     $ readelf -a .A001
     
