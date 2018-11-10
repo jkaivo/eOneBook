@@ -1,0 +1,1 @@
+Linux imx6sllevk 4.1.15+g30278ab #37 SMP PREEMPT Tue Jul 17 16:03:23 JST 2018 armv7l armv7l armv7l GNU/Linux

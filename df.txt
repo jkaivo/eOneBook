@@ -1,0 +1,7 @@
+Filesystem     1K-blocks   Used Available Use% Mounted on
+/dev/root        6781096 252372   6177604   4% /
+devtmpfs          256620      0    256620   0% /dev
+tmpfs             256744     12    256732   1% /run
+tmpfs             256744      4    256740   1% /var/volatile
+/dev/mmcblk0p1  31105296     20  31105276   1% /run/media/mmcblk0p1
+/dev/mmcblk1p1    511720  11512    500208   3% /run/media/mmcblk1p1
