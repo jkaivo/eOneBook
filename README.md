@@ -1175,7 +1175,9 @@ a default in the base distribution.
 So checking `/proc/cpuinfo` reveals that the hardware is a [Freescale i.MX6
 SoloLite](https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/i.mx-applications-processors/i.mx-6-processors/i.mx-6sololite-processors-single-core-low-power-epd-controller-arm-cortex-a9-core:i.MX6SL).
 Further, `/etc/issue` tells me that the device is running [Freescale i.MX
-Release Distro 4.1.15-2.1.0](https://www.nxp.com/webapp/Download?colCode=L4.1.15_2.1.0_iMX6SLL&appType=license&location=null&Parent_nodeId=1337699481071706174845&Parent_pageType=product) (registration required). So I'll be using an official
-image and official documentation to guide the rest of my development efforts.
+Release Distro 4.1.15-2.1.0](https://www.nxp.com/webapp/Download?colCode=L4.1.15_2.1.0_iMX6SLL&appType=license&location=null&Parent_nodeId=1337699481071706174845&Parent_pageType=product)
+(registration required). So I'll be using an official image and [official
+documentation](https://www.nxp.com/webapp/Download?colCode=L4.1.15_2.0.0-LINUX-DOCS&Parent_nodeId=1337699481071706174845&Parent_pageType=product)
+to guide the rest of my development efforts.
 
 Thus ends the reverse engineering.
