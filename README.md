@@ -1162,6 +1162,7 @@ So yes, `.A001` can be a shell script as well. It appears that it can be
 basically anything that Linux will execute as a file. Armed with this
 information, it's time to learn as much about the installed software on this
 device as possible.
+
 First, I'll note a couple things off the bat from this miminal survey: we're
 running as root, which will probably save a lot of time later; the device is
 running Linux 4.1.15; and, there are minimal programs running. One thing I find
