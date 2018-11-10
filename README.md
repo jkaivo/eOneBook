@@ -1033,9 +1033,14 @@ of "CCC", which I am not familiar with. As mentioned before, the encryption
 key appears to be derived somehow from the SDHC card. It will take some poking
 through the key-related fucntions in `.A001` to see if I can extract it.
 
-I'm currently working on a command line utility to convert eOneBook image files
-back and forth to PNM (which can in turn be converted to and from pretty much
-any format using ImageMagick).
+The image files are raw 8-bit grayscale bitmaps, which can be converted to
+the format of your choice using ImageMagick's `convert` utility:
+ 
+    $ convert -depth 8 -size 936x1268 gray:000 000.png
+
+Images of the correct size can be converted to the raw format as well:
+
+    $ convert 000.png 000.gray && mv 000.gray 000
 
 Of note is that I am able to modify unencrypted pages using GIMP, and they
 display just fine on an ordinary SDHC card.
