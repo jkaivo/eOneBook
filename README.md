@@ -1046,3 +1046,27 @@ the contents of each directory. Using the `<<<` button to advance to a volume
 with fewer than the expected number of pages on disk causes the eOneBook to
 display an error message, the only recovery from which is to close the device
 and reopen it, which is functionally a reboot.
+
+## Unofficial Software
+
+The really good news is that the eOneBook will run any GNU/Linux program
+compiled for ARM (provided it has the correct libraries). I compiled the
+following with a cross-compiler:
+
+    #include <stdio.h>
+
+    int main(int argc, char *argv[])
+    {
+    	FILE *output = fopen("/run/media/mmcblk0p1/output.txt", "w");
+    	if (output) {
+    		fprintf(output, "Hello, eOneBook!\n");
+    		fclose(output);
+    	}
+    	return 0;
+    }
+
+Then copied the resultant executable to `.A001` on my SDHC card. Putting it in
+the eOneBook then opening it and waiting a few seconds resulted in the file
+`output.txt` being created with the specified message. Success! A previous
+attempt to print to the screen using `printf()` was unsussful, confirming my
+suspicion that the device does not set up the screens as a terminal.
