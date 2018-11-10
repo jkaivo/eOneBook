@@ -1,14 +1,15 @@
 # eOneBook
 
-The eOneBook is an ereader with two eink displays, intended for reading
-manga with artwork that spans facing pages. The device is described in broad
-strokes at https://progresstech.jp/zenkan/index_en.html.
+The [eOneBook](https://progresstech.jp/zenkan/index_en.html) is an ereader with
+two eink displays, intended for reading manga with artwork that spans facing
+pages. The manufacturer's web page is somewhat light on hardware details, hence
+my effort to reverse engineer and document my findings here.
 
 Though only available for purchase at a handful of retailers in Japan,
-I was able to get one by going through WEBUY, a company that specializes in
-buying and shipping Japanese goods to international buyers. My experience with
-WEBUY was quite good. The transaction was very smooth, and shipping was much
-faster than anticpated. WEBUY's website is https://www.webuyjapan.com/.
+I was able to get one by going through [WEBUY](https://www.webuyjapan.com/), a
+company that specializes in buying and shipping Japanese goods to international
+buyers. My experience with WEBUY was quite good. The transaction was very
+smooth, and shipping was much faster than anticpated.
 
 ## Official Software
 
