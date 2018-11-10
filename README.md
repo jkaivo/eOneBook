@@ -10,7 +10,7 @@ buying and shipping Japanese goods to international buyers. My experience with
 WEBUY was quite good. The transaction was very smooth, and shipping was much
 faster than anticpated. WEBUY's website is https://www.webuyjapan.com/.
 
-# Official Software
+## Official Software
 
 In addition to the device, I bought a copy of Fist of the North Star. I got it
 not just to read, but also to study see how difficult it would be to add my
@@ -29,7 +29,7 @@ the device to read the unecnrypted pages. Encrypted pages appeared scrambled,
 so it's possible that the decryption key is derived from the SDHC card in some
 manner.
 
-## Disk Layout
+### Disk Layout
 
 The root of the SDHC card contains one file, `.A001`, and two directories,
 `C01` and `C02`. The directory structures underneath `C01` and `C02` contain
@@ -50,7 +50,7 @@ three partitions blank, which resulted in an error screen on the eOneBook
 instructing me (in Japanese, so very roughly paraphrased) to remove the close
 the device, insert a different SDHC card, and open the device back up.
 
-### The Executable
+#### The Executable
 
 It was simple to see that the purpose of the two directories in the root of
 disk, but the file `.A001` was somewhat less obvious. Naturally, the first
@@ -717,7 +717,298 @@ executable, and they didn't strip symbols. And they used function names that
 are actually descriptive. This will save a lot of time in reverse engineering
 how the program actually runs so that I can develop a free replacement.
 
-### Image Files
+Another good thing to look at is the strings contained in the binary:
+
+
+    $ strings .A001
+    /lib/ld-linux-armhf.so.3
+    Q|OG
+    (!9@
+    libpthread.so.0
+    _ITM_deregisterTMCloneTable
+    _Jv_RegisterClasses
+    _ITM_registerTMCloneTable
+    pthread_mutex_unlock
+    pthread_create
+    pthread_mutex_lock
+    fcntl
+    pthread_mutex_init
+    libc.so.6
+    strcpy
+    shmget
+    sprintf
+    fopen
+    strncmp
+    perror
+    shmat
+    strncpy
+    shmdt
+    abort
+    chmod
+    strtok
+    mmap
+    fgets
+    strlen
+    memset
+    ftok
+    fputs
+    memcpy
+    fclose
+    malloc
+    strcat
+    ioctl
+    system
+    munmap
+    usleep
+    fwrite
+    fread
+    gettimeofday
+    atoi
+    strchr
+    strcmp
+    __libc_start_main
+    free
+    __xstat
+    __gmon_start__
+    GLIBC_2.4
+    shutdown -h now
+    /sys/class/gpio/export
+    /sys/class/gpio/gpio100/direction
+    /sys/class/gpio/gpio91/direction
+    /sys/class/gpio/gpio96/direction
+    /sys/class/gpio/gpio89/direction
+    /sys/class/gpio/gpio108/direction
+    /sys/class/gpio/gpio94/direction
+    /sys/class/gpio/gpio101/direction
+    /sys/class/gpio/gpio95/direction
+    /sys/class/gpio/gpio92/direction
+    /sys/class/gpio/gpio5/direction
+    /sys/class/gpio/gpio4/direction
+    /sys/class/gpio/gpio93/direction
+    /sys/class/gpio/gpio98/direction
+    /sys/class/gpio/gpio90/direction
+    /sys/class/gpio/gpio88/direction
+    /sys/class/gpio/gpio0/direction
+    /sys/class/gpio/gpio1/direction
+    /sys/class/gpio/gpio2/direction
+    /sys/class/gpio/gpio3/direction
+    /sys/class/gpio/gpio6/direction
+    /sys/class/gpio/gpio28/direction
+    /sys/class/gpio/gpio29/direction
+    /sys/class/gpio/gpio30/direction
+    /sys/class/gpio/gpio33/direction
+    /sys/class/gpio/gpio37/direction
+    /sys/class/gpio/gpio38/direction
+    /sys/class/gpio/gpio47/direction
+    /sys/class/gpio/gpio48/direction
+    /sys/class/gpio/gpio49/direction
+    /sys/class/gpio/gpio50/direction
+    /sys/class/gpio/gpio51/direction
+    /sys/class/gpio/gpio52/direction
+    /sys/class/gpio/gpio53/direction
+    /sys/class/gpio/gpio54/direction
+    /sys/class/gpio/gpio55/direction
+    /sys/class/gpio/gpio56/direction
+    /sys/class/gpio/gpio57/direction
+    /sys/class/gpio/gpio58/direction
+    /sys/class/gpio/gpio59/direction
+    /sys/class/gpio/gpio60/direction
+    /sys/class/gpio/gpio61/direction
+    /sys/class/gpio/gpio62/direction
+    /sys/class/gpio/gpio63/direction
+    /sys/class/gpio/gpio64/direction
+    /sys/class/gpio/gpio65/direction
+    /sys/class/gpio/gpio66/direction
+    /sys/class/gpio/gpio67/direction
+    /sys/class/gpio/gpio68/direction
+    /sys/class/gpio/gpio69/direction
+    /sys/class/gpio/gpio70/direction
+    /sys/class/gpio/gpio71/direction
+    /sys/class/gpio/gpio72/direction
+    /sys/class/gpio/gpio73/direction
+    /sys/class/gpio/gpio74/direction
+    /sys/class/gpio/gpio75/direction
+    /sys/class/gpio/gpio78/direction
+    /sys/class/gpio/gpio79/direction
+    /sys/class/gpio/gpio86/direction
+    /sys/class/gpio/gpio87/direction
+    /sys/class/gpio/gpio97/direction
+    /sys/class/gpio/gpio99/direction
+    /sys/class/gpio/gpio104/direction
+    /sys/class/gpio/gpio105/direction
+    /sys/class/gpio/gpio106/direction
+    /sys/class/gpio/gpio107/direction
+    /sys/class/gpio/gpio109/direction
+    /sys/class/gpio/gpio110/direction
+    /sys/class/gpio/gpio111/direction
+    /sys/class/gpio/gpio112/direction
+    /sys/class/gpio/gpio113/direction
+    /sys/class/gpio/gpio114/direction
+    /sys/class/gpio/gpio115/direction
+    /sys/class/gpio/gpio116/direction
+    /sys/class/gpio/gpio117/direction
+    /sys/class/gpio/gpio118/direction
+    /sys/class/gpio/gpio119/direction
+    /sys/class/gpio/gpio120/direction
+    /sys/class/gpio/gpio121/direction
+    /sys/class/gpio/gpio122/direction
+    /sys/class/gpio/gpio135/direction
+    /sys/class/gpio/gpio137/direction
+    /sys/class/gpio/gpio138/direction
+    /sys/class/gpio/gpio140/direction
+    /sys/class/gpio/gpio144/direction
+    /sys/class/gpio/gpio145/direction
+    /sys/class/gpio/gpio146/direction
+    /sys/class/gpio/gpio147/direction
+    /sys/class/gpio/gpio148/direction
+    /sys/class/gpio/gpio149/direction
+    /sys/class/gpio/gpio98/value
+    /sys/class/gpio/gpio90/value
+    /sys/class/gpio/gpio108/value
+    /sys/class/gpio/gpio94/value
+    /sys/class/gpio/gpio101/value
+    /sys/class/gpio/gpio0/value
+    /sys/class/gpio/gpio1/value
+    /sys/class/gpio/gpio2/value
+    /sys/class/gpio/gpio3/value
+    /sys/class/gpio/gpio6/value
+    /sys/class/gpio/gpio28/value
+    /sys/class/gpio/gpio29/value
+    /sys/class/gpio/gpio30/value
+    /sys/class/gpio/gpio33/value
+    /sys/class/gpio/gpio37/value
+    /sys/class/gpio/gpio38/value
+    /sys/class/gpio/gpio47/value
+    /sys/class/gpio/gpio48/value
+    /sys/class/gpio/gpio49/value
+    /sys/class/gpio/gpio50/value
+    /sys/class/gpio/gpio51/value
+    /sys/class/gpio/gpio52/value
+    /sys/class/gpio/gpio53/value
+    /sys/class/gpio/gpio54/value
+    /sys/class/gpio/gpio55/value
+    /sys/class/gpio/gpio56/value
+    /sys/class/gpio/gpio57/value
+    /sys/class/gpio/gpio58/value
+    /sys/class/gpio/gpio59/value
+    /sys/class/gpio/gpio60/value
+    /sys/class/gpio/gpio61/value
+    /sys/class/gpio/gpio62/value
+    /sys/class/gpio/gpio63/value
+    /sys/class/gpio/gpio64/value
+    /sys/class/gpio/gpio65/value
+    /sys/class/gpio/gpio66/value
+    /sys/class/gpio/gpio67/value
+    /sys/class/gpio/gpio68/value
+    /sys/class/gpio/gpio69/value
+    /sys/class/gpio/gpio70/value
+    /sys/class/gpio/gpio71/value
+    /sys/class/gpio/gpio72/value
+    /sys/class/gpio/gpio73/value
+    /sys/class/gpio/gpio74/value
+    /sys/class/gpio/gpio75/value
+    /sys/class/gpio/gpio78/value
+    /sys/class/gpio/gpio79/value
+    /sys/class/gpio/gpio86/value
+    /sys/class/gpio/gpio87/value
+    /sys/class/gpio/gpio97/value
+    /sys/class/gpio/gpio99/value
+    /sys/class/gpio/gpio104/value
+    /sys/class/gpio/gpio105/value
+    /sys/class/gpio/gpio106/value
+    /sys/class/gpio/gpio107/value
+    /sys/class/gpio/gpio109/value
+    /sys/class/gpio/gpio110/value
+    /sys/class/gpio/gpio111/value
+    /sys/class/gpio/gpio112/value
+    /sys/class/gpio/gpio113/value
+    /sys/class/gpio/gpio114/value
+    /sys/class/gpio/gpio115/value
+    /sys/class/gpio/gpio116/value
+    /sys/class/gpio/gpio117/value
+    /sys/class/gpio/gpio118/value
+    /sys/class/gpio/gpio119/value
+    /sys/class/gpio/gpio120/value
+    /sys/class/gpio/gpio121/value
+    /sys/class/gpio/gpio122/value
+    /sys/class/gpio/gpio135/value
+    /sys/class/gpio/gpio137/value
+    /sys/class/gpio/gpio138/value
+    /sys/class/gpio/gpio140/value
+    /sys/class/gpio/gpio144/value
+    /sys/class/gpio/gpio145/value
+    /sys/class/gpio/gpio146/value
+    /sys/class/gpio/gpio147/value
+    /sys/class/gpio/gpio148/value
+    /sys/class/gpio/gpio149/value
+    /sys/class/gpio/gpio93/value
+    /sys/class/gpio/gpio88/value
+    /sys/class/gpio/gpio95/value
+    /sys/class/gpio/gpio92/value
+    /sys/class/gpio/gpio96/value
+    /sys/class/gpio/gpio89/value
+    /sys/class/gpio/gpio100/value
+    /sys/class/gpio/gpio91/value
+    /sys/class/gpio/gpio5/value
+    /sys/class/gpio/gpio4/value
+    /home/root/lowbatteryR
+    /home/root/lowbatteryL
+    /home/root/sleepR
+    /home/root/sleepL
+    /home/root/sdremoveR
+    /home/root/sdremoveL
+    /run/media/mmcblk0p1/c01/
+    /run/media/mmcblk0p1/c02/
+    00%d
+    %s%s/00%d
+    %s%s/0%d
+    %s%s/%d
+    /home/root/LastFilePath.txt
+    ERR: Unable to read fixed screeninfo for %s
+    mxc_epdc_fb
+    ERR: failed to map framebuffer device 0 to memory.
+    ERR: failed to set update mode.
+    ERR: failed to set waveform mode.
+    ERR: failed to set update scheme.
+    ERR: failed to set power down delay.
+    /dev/fb
+    RETRY: fail to send update. retryCnt:%d
+    ERR: retry over. Err:0x%x
+    ERR: fail to update complete. Err:0x%x
+    [PIB_init] !!!!! Memory allocation Error!!!!!
+    [PIB_getImage] Invalid Parameter!!
+    /dev/crypto
+    open(/dev/crypto)
+    fcntl(F_SETFD)
+    close(cfd)
+    ioctl(CIOCGSESSION)
+    ioctl(CIOCGSESSINFO)
+    ioctl(CIOCCRYPT)
+    ioctl(CIOCFSESSION)
+    /sys/block/mmcblk0/device/serial
+    open err2
+    ./.shm
+    ./.shm
+    Failed to acquire key. 
+    shared memory attached at address %p
+    mem %02X %02X %02X %02X %02X %02X %02X %02X
+        %02X %02X %02X %02X %02X %02X %02X %02X
+
+This gives us some indication that the device might communicate with the
+screens using GPIO. Then again, based on some of the error messages, it might
+map them as framebuffers direct to memory. I'll have to look through the
+disassembly to figure out for sure.
+
+Something else strings indicate is that there are some files in `/home/root`
+that might be of interest (`lowbatteryR`, `lowerbatteryL`, `sleepR`, `sleepL`,
+`sdremoveR`, `sdremoveL`, and `LastFilePath.txt`). Also, it appears likely
+that the sd card is mounted at `/run/media/mmcblk0p1`, and the `.A001`
+explicitly looks for the directories `c01` and `c02` under that path.
+
+The reference to `/sys/block/mmcblk0/device/serial` is interesting, and
+makes me wonder if it has anything to do with deriving the encryption key.
+
+#### Image Files
 
 As mentioned before, the manga are stored one image per page, one directory
 per volume. A quick perusal shows that every image file is 1186848 bytes. This
