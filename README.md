@@ -1070,3 +1070,101 @@ the eOneBook then opening it and waiting a few seconds resulted in the file
 `output.txt` being created with the specified message. Success! A previous
 attempt to print to the screen using `printf()` was unsussful, confirming my
 suspicion that the device does not set up the screens as a terminal.
+
+I was curious as to whether or not the program needs to be a compiled program,
+or if it could be a shell script. So I threw this into `.A001`:
+
+    #!/bin/sh
+    exec >/run/media/mmcblk0p1/script.txt
+
+    id
+    uname -a
+    ls -l /
+    ps aux
+
+Throwing this in the device and giving it a few seconds, it came back to my
+computer with the following in `script.txt`:
+
+    uid=0(root) gid=0(root) groups=0(root)
+    Linux imx6sllevk 4.1.15+g30278ab #37 SMP PREEMPT Tue Jul 17 16:03:23 JST 2018 armv7l armv7l armv7l GNU/Linux
+    total 64
+    drwxr-xr-x  2 root root  4096 Jan  1  1970 bin
+    drwxr-xr-x  2 root root  4096 Jan  1  1970 boot
+    drwxr-xr-x  3 root root  2640 Jul 15 05:13 dev
+    drwxr-xr-x 46 root root  4096 Jan  1  1970 etc
+    drwxr-xr-x  3 root root  4096 Jan  1  1970 home
+    drwxr-xr-x  8 root root  4096 Jan  1  1970 lib
+    drwx------  2 root root 16384 Jan  1  1970 lost+found
+    drwxr-xr-x  2 root root  4096 May 15 01:28 media
+    drwxr-xr-x  3 root root  4096 Jan  1  1970 mnt
+    drwxr-xr-x  2 root root  4096 Jul 15 05:13 opt
+    dr-xr-xr-x 60 root root     0 Jan  1  1970 proc
+    drwxr-xr-x  9 root root   280 Jul 15 05:13 run
+    drwxr-xr-x  2 root root  4096 Jan  1  1970 sbin
+    dr-xr-xr-x 12 root root     0 Jan  1  1970 sys
+    lrwxrwxrwx  1 root root     8 Jan  1  1970 tmp -> /var/tmp
+    drwxr-xr-x  2 root root  4096 Jan  1  1970 unit_tests
+    drwxr-xr-x 11 root root  4096 Jan  1  1970 usr
+    drwxr-xr-x  8 root root  4096 Jan  1  1970 var
+    USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+    root         1 28.0  0.0   1712   328 ?        Ss   05:13   0:00 init [5]
+    root         2  0.0  0.0      0     0 ?        S    05:13   0:00 [kthreadd]
+    root         3  0.0  0.0      0     0 ?        S    05:13   0:00 [ksoftirqd/0]
+    root         4  0.0  0.0      0     0 ?        S    05:13   0:00 [kworker/0:0]
+    root         5  0.0  0.0      0     0 ?        S<   05:13   0:00 [kworker/0:0H]
+    root         6  3.0  0.0      0     0 ?        S    05:13   0:00 [kworker/u2:0]
+    root         7  0.0  0.0      0     0 ?        S    05:13   0:00 [rcu_preempt]
+    root         8  0.0  0.0      0     0 ?        S    05:13   0:00 [rcu_sched]
+    root         9  0.0  0.0      0     0 ?        S    05:13   0:00 [rcu_bh]
+    root        10  0.0  0.0      0     0 ?        S    05:13   0:00 [migration/0]
+    root        11  0.0  0.0      0     0 ?        S<   05:13   0:00 [khelper]
+    root        12  0.0  0.0      0     0 ?        S    05:13   0:00 [kdevtmpfs]
+    root        13  0.0  0.0      0     0 ?        S<   05:13   0:00 [perf]
+    root        14  0.0  0.0      0     0 ?        S<   05:13   0:00 [writeback]
+    root        15  0.0  0.0      0     0 ?        S<   05:13   0:00 [crypto]
+    root        16  0.0  0.0      0     0 ?        S<   05:13   0:00 [bioset]
+    root        17  0.0  0.0      0     0 ?        S<   05:13   0:00 [kblockd]
+    root        18  0.0  0.0      0     0 ?        S    05:13   0:00 [kswapd0]
+    root        19  0.0  0.0      0     0 ?        S    05:13   0:00 [fsnotify_mark]
+    root        33  0.0  0.0      0     0 ?        S    05:13   0:00 [kworker/0:1]
+    root        34  0.0  0.0      0     0 ?        S<   05:13   0:00 [ci_otg]
+    root        35  0.0  0.0      0     0 ?        S    05:13   0:00 [irq/250-mmc0]
+    root        36  0.0  0.0      0     0 ?        S    05:13   0:00 [irq/135-2190000]
+    root        37  0.0  0.0      0     0 ?        S    05:13   0:00 [kworker/u2:1]
+    root        38  0.0  0.0      0     0 ?        S    05:13   0:00 [irq/251-mmc1]
+    root        39  0.0  0.0      0     0 ?        S    05:13   0:00 [irq/162-2194000]
+    root        40  0.0  0.0      0     0 ?        S<   05:13   0:00 [kworker/u3:0]
+    root        41  0.0  0.0      0     0 ?        S<   05:13   0:00 [EPDC Submit]
+    root        42  0.0  0.0      0     0 ?        S<   05:13   0:00 [EPDC Interrupt]
+    root        43  0.0  0.0      0     0 ?        S    05:13   0:00 [pxp_dispatch]
+    root        44  0.0  0.0      0     0 ?        S<   05:13   0:00 [deferwq]
+    root        45  0.0  0.0      0     0 ?        S    05:13   0:00 [kworker/u2:2]
+    root        46  0.0  0.0      0     0 ?        S    05:13   0:00 [irq/231-imx_the]
+    root        47  1.5  0.0      0     0 ?        S    05:13   0:00 [mmcqd/0]
+    root        48  7.5  0.0      0     0 ?        S    05:13   0:00 [mmcqd/1]
+    root        49  0.0  0.0      0     0 ?        S    05:13   0:00 [mmcqd/1boot0]
+    root        50  0.0  0.0      0     0 ?        S    05:13   0:00 [mmcqd/1boot1]
+    root        51  0.0  0.0      0     0 ?        S    05:13   0:00 [mmcqd/1rpmb]
+    root        52  0.5  0.0      0     0 ?        S<   05:13   0:00 [kworker/0:1H]
+    root        53  0.0  0.0      0     0 ?        S    05:13   0:00 [kjournald]
+    root       170  2.0  0.3   2772  1980 ?        Ss   05:13   0:00 /bin/sh /etc/init.d/rc 5
+    message+   177  3.0  0.3   2916  1560 ?        Ss   05:13   0:00 /usr/bin/dbus-daemon --system
+    root       181  0.0  0.6   7108  3324 ?        Ss   05:13   0:00 /usr/sbin/connmand
+    root       188  0.0  0.2   1936  1208 ?        S    05:13   0:00 /usr/sbin/atd -f
+    root       202  0.0  0.0   2772   512 ?        S    05:13   0:00 /bin/sh /etc/rc5.d/S99rc.local start
+    root       205  0.0  0.3   2772  1996 ?        S    05:13   0:00 /bin/sh -e /etc/rc.local
+    root       208  0.0  0.6   7212  3208 ?        S    05:13   0:00 /usr/sbin/wpa_supplicant -u
+    root       211  0.0  0.0      0     0 ?        S<   05:13   0:00 [cryptodev_queue]
+    root       218  0.0  0.3   2772  1980 ?        S    05:13   0:00 /bin/sh /run/media/mmcblk0p1/.A001
+    root       222  0.0  0.2   2796  1456 ?        R    05:13   0:00 ps aux
+
+So yes, `.A001` can be a shell script as well. It appears that it can be
+basically anything that Linux will execute as a file. Armed with this
+information, it's time to learn as much about the installed software on this
+device as possible.
+First, I'll note a couple things off the bat from this miminal survey: we're
+running as root, which will probably save a lot of time later; the device is
+running Linux 4.1.15; and, there are minimal programs running. One thing I find
+particularly interesting at this point is that wpa_supplicant is running. This
+is unexpected given that the device is advertised as having no connectivity.
+I'll have to check for network interfaces soon.
