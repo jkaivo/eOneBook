@@ -1,0 +1,163 @@
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.1.15+g30278ab (tsumikii@tsumikii-WS2) (gcc version 5.3.0 (GCC) ) #37 SMP PREEMPT Tue Jul 17 16:03:23 JST 2018
+[    0.000000] CPU: ARMv7 Processor [414fc091] revision 1 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine model: Freescale i.MX6SLL EVK Board
+[    0.000000] Memory policy: Data cache writeback
+[    0.000000] On node 0 totalpages: 131072
+[    0.000000] free_area_init_node: node 0, pgdat 805c2e00, node_mem_map 9fbf7000
+[    0.000000]   Normal zone: 1024 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 131072 pages, LIFO batch:31
+[    0.000000] CPU: All CPU(s) started in SVC mode.
+[    0.000000] PERCPU: Embedded 11 pages/cpu @9fbd9000 s12544 r8192 d24320 u45056
+[    0.000000] pcpu-alloc: s12544 r8192 d24320 u45056 alloc=11*4096
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 130048
+[    0.000000] Kernel command line: console=ttymxc0,115200 root=/dev/mmcblk1p2 rootwait rw
+[    0.000000] PID hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Memory: 513240K/524288K available (4011K kernel code, 207K rwdata, 1404K rodata, 248K init, 487K bss, 11048K reserved, 0K cma-reserved, 0K highmem)
+[    0.000000] Virtual kernel memory layout:
+                   vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+                   fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+                   vmalloc : 0xa0800000 - 0xff000000   (1512 MB)
+                   lowmem  : 0x80000000 - 0xa0000000   ( 512 MB)
+                   pkmap   : 0x7fe00000 - 0x80000000   (   2 MB)
+                   modules : 0x7f000000 - 0x7fe00000   (  14 MB)
+                     .text : 0x80008000 - 0x80551eac   (5416 kB)
+                     .init : 0x80552000 - 0x80590000   ( 248 kB)
+                     .data : 0x80590000 - 0x805c3e60   ( 208 kB)
+                      .bss : 0x805c6000 - 0x8063fd1c   ( 488 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] 	Additional per-CPU info printed with stalls.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=1.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] L2C-310 erratum 769419 enabled
+[    0.000000] L2C-310 enabling early BRESP for Cortex-A9
+[    0.000000] L2C-310 full line of zeros enabled for Cortex-A9
+[    0.000000] L2C-310 ID prefetch enabled, offset 16 lines
+[    0.000000] L2C-310 dynamic clock gating enabled, standby mode enabled
+[    0.000000] L2C-310 cache controller enabled, 16 ways, 256 kB
+[    0.000000] L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x76430001
+[    0.000000] mxc_clocksource_init 3000000
+[    0.000000] Switching to timer-based delay loop, resolution 333ns
+[    0.000007] sched_clock: 32 bits at 3000kHz, resolution 333ns, wraps every 715827882841ns
+[    0.000022] clocksource mxc_timer1: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 637086815595 ns
+[    0.000817] Console: colour dummy device 80x30
+[    0.001239] Calibrating delay loop (skipped), value calculated using timer frequency.. 6.00 BogoMIPS (lpj=30000)
+[    0.001257] pid_max: default: 32768 minimum: 301
+[    0.001365] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.001376] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.001997] CPU: Testing write buffer coherency: ok
+[    0.002235] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.002311] Setting up static identity map for 0x80008280 - 0x800082d8
+[    0.040529] Brought up 1 CPUs
+[    0.040543] SMP: Total of 1 processors activated (6.00 BogoMIPS).
+[    0.040549] CPU: All CPU(s) started in SVC mode.
+[    0.041012] devtmpfs: initialized
+[    0.045885] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+[    0.046271] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.046686] pinctrl core: initialized pinctrl subsystem
+[    0.047675] NET: Registered protocol family 16
+[    0.048311] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.070246] cpuidle: using governor ladder
+[    0.100271] cpuidle: using governor menu
+[    0.109187] 20ca000.usbphy supply phy-3p0 not found, using dummy regulator
+[    0.114915] hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
+[    0.114927] hw-breakpoint: maximum watchpoint size is 4 bytes.
+[    0.117312] imx6sll-pinctrl 20e0000.iomuxc: initialized IMX pinctrl driver
+[    0.154107] tps6518x_probe calling
+[    0.154130] 0-0068 supply SENSOR not found, using dummy regulator
+[    0.154205] tps6518x_detect calling
+[    0.154796] tps6518x_detect success
+[    0.155053] tps6518x 0-0068: PMIC TPS6518x for eInk display
+[    0.155060] tps6518x_probe success
+[    0.155089] i2c i2c-0: IMX I2C adapter registered
+[    0.155102] i2c i2c-0: can't use DMA
+[    0.155203] Linux video capture interface: v2.00
+[    0.155288] pps_core: LinuxPPS API ver. 1 registered
+[    0.155295] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.155324] PTP clock support registered
+[    0.156875] tps6518x_regulator_probe starting
+[    0.162340] tps6518x_regulator_probe success
+[    0.162559] Switched to clocksource mxc_timer1
+[    0.173194] NET: Registered protocol family 1
+[    0.175179] Bus freq driver module loaded
+[    0.176114] futex hash table entries: 256 (order: 2, 16384 bytes)
+[    0.181553] VFS: Disk quotas dquot_6.6.0
+[    0.181752] VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.183764] fuse init (API version 7.23)
+[    0.186036] io scheduler noop registered
+[    0.186056] io scheduler deadline registered
+[    0.186113] io scheduler cfq registered (default)
+[    0.188480] imx-sdma 20ec000.sdma: no event needs to be remapped
+[    0.191334] imx-sdma 20ec000.sdma: initialized
+[    0.192062] imx-sdma 20ec000.sdma: loaded firmware 3.3
+[    0.193204] pfuze100-regulator 0-0008: Full layer: 1, Metal layer: 1
+[    0.193745] pfuze100-regulator 0-0008: FAB: 0, FIN: 0
+[    0.193757] pfuze100-regulator 0-0008: pfuze3000 found.
+[    0.206758] 2020000.serial: ttymxc0 at MMIO 0x2020000 (irq = 18, base_baud = 5000000) is a IMX
+[    0.635618] console [ttymxc0] enabled
+[    0.650600] brd: module loaded
+[    0.658115] loop: module loaded
+[    0.661704] 2184800.usbmisc supply vbus-wakeup not found, using dummy regulator
+[    0.672035] ci_hdrc ci_hdrc.0: doesn't support host
+[    0.677855] Mass Storage Function, version: 2009/09/11
+[    0.681715] LUN: removable file: (no medium)
+[    0.684771] no file given for LUN0
+[    0.686907] g_mass_storage ci_hdrc.0: failed to start g_mass_storage: -22
+[    0.693456] snvs_rtc 20cc000.snvs:snvs-rtc-lp: rtc core: registered 20cc000.snvs:snvs-r as rtc0
+[    0.701002] i2c /dev entries driver
+[    0.706174] imx2-wdt 20bc000.wdog: timeout 60 sec (nowayout=1)
+[    0.711051] sdhci: Secure Digital Host Controller Interface driver
+[    0.716002] sdhci: Copyright(c) Pierre Ossman
+[    0.719076] sdhci-pltfm: SDHCI platform and OF driver helper
+[    0.724615] /soc/aips-bus@02100000/usdhc@02190000: voltage-ranges unspecified
+[    0.730494] sdhci-esdhc-imx 2190000.usdhc: Got CD GPIO
+[    0.734413] sdhci-esdhc-imx 2190000.usdhc: Got WP GPIO
+[    0.739391] sdhci-esdhc-imx 2190000.usdhc: No vmmc regulator found
+[    0.744315] sdhci-esdhc-imx 2190000.usdhc: No vqmmc regulator found
+[    0.792843] mmc0: SDHCI controller on 2190000.usdhc [2190000.usdhc] using DMA
+[    0.808147] /soc/aips-bus@02100000/usdhc@02194000: voltage-ranges unspecified
+[    0.817136] sdhci-esdhc-imx 2194000.usdhc: Got CD GPIO
+[    0.821059] sdhci-esdhc-imx 2194000.usdhc: Got WP GPIO
+[    0.827141] sdhci-esdhc-imx 2194000.usdhc: No vmmc regulator found
+[    0.834134] sdhci-esdhc-imx 2194000.usdhc: No vqmmc regulator found
+[    0.882806] mmc1: SDHCI controller on 2194000.usdhc [2194000.usdhc] using DMA
+[    0.890231] NET: Registered protocol family 17
+[    0.894134] cpu cpu0: dev_pm_opp_get_opp_count: device OPP not found (-19)
+[    0.912781] Registering SWP/SWPB emulation handler
+[    1.023610] mmc0: Problem setting current limit!
+[    1.040904] snvs_rtc 20cc000.snvs:snvs-rtc-lp: setting system clock to 1970-01-01 00:00:00 UTC (0)
+[    1.054861] usb_otg1_vbus: disabling
+[    1.057713] Waiting for root device /dev/mmcblk1p2...
+[    1.132601] mmc0: new ultra high speed DDR50 SDHC card at address aaaa
+[    1.138259] mmcblk0: mmc0:aaaa SU32G 29.7 GiB 
+[    1.150604] mmcblk0: error -84 transferring data, sector 0, nr 8, cmd response 0x900, card status 0xb00
+[    1.233739] mmc0: tried to reset card
+[    1.236953]  mmcblk0: p1
+[    1.318725] mmc1: MAN_BKOPS_EN bit is not set
+[    1.331292] mmc1: mmc_select_hs200 failed, error -74
+[    1.334982] : switch to mmc1 failed
+[    1.341354] mmc1: new MMC card at address 0001
+[    1.344945] mmcblk1: mmc1:0001 DG4008 7.28 GiB 
+[    1.348328] mmcblk1boot0: mmc1:0001 DG4008 partition 1 4.00 MiB
+[    1.353163] mmcblk1boot1: mmc1:0001 DG4008 partition 2 4.00 MiB
+[    1.357927] mmcblk1rpmb: mmc1:0001 DG4008 partition 3 4.00 MiB
+[    1.363622]  mmcblk1: p1 p2
+[    1.390166] kjournald starting.  Commit interval 5 seconds
+[    1.394547] EXT3-fs (mmcblk1p2): using internal journal
+[    1.398477] EXT3-fs (mmcblk1p2): mounted filesystem with ordered data mode
+[    1.404157] VFS: Mounted root (ext3 filesystem) on device 179:18.
+[    1.410622] devtmpfs: mounted
+[    1.412627] Freeing unused kernel memory: 248K (80552000 - 80590000)
+[    2.365726] random: dd urandom read with 20 bits of entropy available
+[    3.155034] cryptodev: module_layout: kernel tainted.
+[    3.158794] Disabling lock debugging due to kernel taint
+[    3.186960] cryptodev: driver 1.8 loaded.
+[    3.310073] FAT-fs (mmcblk0p1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+[    3.407321] FAT-fs (mmcblk1p1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
