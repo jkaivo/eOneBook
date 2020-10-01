@@ -1,9 +1,9 @@
 TL;DR: This device is really easy to reverse engineer, because they left
 debugging symbols in the official firmware image. I have started two separate
 projects, one to decrypt the contents of SD cards called
-[`deonebook`](/jkaivo/deonebook), and one to create a free replacement
-interface that allows easy side-loading of content called
-[`freeonebook`](/jkaivo/freeonebook).
+[`deonebook`](https://github.com/jkaivo/deonebook), and one to create a free
+replacement interface that allows easy side-loading of content called
+[`freeonebook`](https://github.com/jkaivo/freeonebook).
 
 # eOneBook
 
